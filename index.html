@@ -1,0 +1,426 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>John Gaskins - Recovery Report</title>
+    <style>
+        :root {
+            --bg: #F5F5F7;
+            --surface: #FFFFFF;
+            --text-primary: #1D1D1F;
+            --text-secondary: #86868B;
+            --accent: #0071E3;
+            --accent-hover: #0077ED;
+            --success: #34C759;
+            --danger: #FF3B30;
+            --radius: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.5;
+            font-weight: 400;
+            letter-spacing: -0.022em;
+            -webkit-font-smoothing: antialiased;
+            padding-bottom: 60px;
+        }
+
+        /* Mobile-First Layout Core */
+        .container {
+            width: 100%;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+
+        /* Header / Hero Section */
+        .report-header {
+            text-align: center;
+            padding: 60px 0 40px 0;
+        }
+
+        .eyebrow {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.005em;
+            margin-bottom: 16px;
+        }
+
+        .intro {
+            font-size: 17px;
+            color: var(--text-secondary);
+            margin: 0 auto 30px auto;
+        }
+
+        .intro strong {
+            color: var(--text-primary);
+        }
+
+        /* Card Design */
+        .card {
+            background: var(--surface);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-header {
+            margin-bottom: 16px;
+        }
+
+        .card-number {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 4px;
+            display: block;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
+        }
+
+        .overview {
+            font-size: 15px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        /* Buttons */
+        .btn-container {
+            margin-bottom: 24px;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 980px; /* Apple pill shape */
+            font-size: 15px;
+            font-weight: 600;
+            text-align: center;
+            width: 100%;
+            transition: background 0.2s ease, transform 0.1s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Pros and Cons Sections */
+        .review-section {
+            background: var(--bg);
+            border-radius: 14px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .review-title {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pros .review-title {
+            color: var(--success);
+        }
+
+        .cons .review-title {
+            color: var(--danger);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            font-size: 14px;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            position: relative;
+            padding-left: 20px;
+        }
+
+        li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--text-secondary);
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            border-top: 1px solid #E5E5EA;
+            margin-top: 40px;
+        }
+
+        /* Desktop Adjustments (Progressive Enhancement) */
+        @media (min-width: 768px) {
+            .container {
+                max-width: 700px;
+            }
+
+            .report-header {
+                padding: 100px 0 60px 0;
+            }
+
+            h1 {
+                font-size: 48px;
+            }
+
+            .intro {
+                font-size: 19px;
+            }
+
+            .card {
+                padding: 40px;
+            }
+
+            .card:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            }
+
+            .card-header-flex {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-start;
+            }
+
+            .btn-container {
+                margin-bottom: 0;
+            }
+
+            .btn {
+                width: auto;
+                padding: 10px 24px;
+            }
+
+            .review-grid {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 20px;
+            }
+
+            .review-section {
+                margin-bottom: 0;
+                height: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="report-header">
+            <span class="eyebrow">Customized Recovery Report</span>
+            <h1>Prepared for John Gaskins</h1>
+            <p class="intro">John, navigating sleep after rotator cuff surgery is a challenge. To help you prepare your recovery space, we've compiled this data-driven analysis of the top post-op support systems, prioritizing unvarnished patient feedback.</p>
+        </header>
+
+        <main>
+            <!-- System 1 -->
+            <article class="card">
+                <div class="card-header-flex">
+                    <div class="card-header">
+                        <span class="card-number">Option 01</span>
+                        <h2>MedCline Shoulder Relief System</h2>
+                        <p class="overview">A comprehensive 3-piece system featuring a patented arm pocket to completely remove body weight from the shoulder joint.</p>
+                    </div>
+                    <div class="btn-container">
+                        <a href="https://medcline.com/products/shoulder-relief-pillow" target="_blank" class="btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="review-grid">
+                    <div class="review-section pros">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Patient Benefits
+                        </div>
+                        <ul>
+                            <li>The arm pocket is widely considered a "lifesaver" for throbbing joint pain.</li>
+                            <li>Relieves joint pressure completely, allowing for deep, sustained rest.</li>
+                            <li>Highly recommended by veterans and patients with chronic pain.</li>
+                        </ul>
+                    </div>
+                    <div class="review-section cons">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            The Reality
+                        </div>
+                        <ul>
+                            <li>Massive footprint; takes up nearly half of a standard Queen-sized bed.</li>
+                            <li>Threading your arm through the hole can be tricky with limited post-op mobility.</li>
+                            <li>Strict return policy often involves restocking fees and return shipping costs.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- System 2 -->
+            <article class="card">
+                <div class="card-header-flex">
+                    <div class="card-header">
+                        <span class="card-number">Option 02</span>
+                        <h2>Sleep Again Pillow System</h2>
+                        <p class="overview">A 5-piece wedge and bolster system that creates a stabilizing "cocoon" around your body to completely prevent rolling.</p>
+                    </div>
+                    <div class="btn-container">
+                        <a href="https://sleepagainpillows.com/pages/orthopedic-surgery-shop" target="_blank" class="btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="review-grid">
+                    <div class="review-section pros">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Patient Benefits
+                        </div>
+                        <ul>
+                            <li>Builds a physical boundary that provides peace of mind against rolling over in your sleep.</li>
+                            <li>Successfully trains dedicated side-sleepers to comfortably sleep supine.</li>
+                            <li>Provides excellent full-body stabilization.</li>
+                        </ul>
+                    </div>
+                    <div class="review-section cons">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            The Reality
+                        </div>
+                        <ul>
+                            <li>Dense synthetic materials cause many users to sleep hot or wake up sweating.</li>
+                            <li>Very difficult to get in and out of independently with only one functioning arm.</li>
+                            <li>Connecting straps can dig into the skin if misaligned.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- System 3 -->
+            <article class="card">
+                <div class="card-header-flex">
+                    <div class="card-header">
+                        <span class="card-number">Option 03</span>
+                        <h2>The Shoulder Sleeper Pillow™</h2>
+                        <p class="overview">A targeted, minimalist arm support brace designed by a physical therapist to isolate the arm without restrictive neck straps.</p>
+                    </div>
+                    <div class="btn-container">
+                        <a href="https://shouldersleeper.com/" target="_blank" class="btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="review-grid">
+                    <div class="review-section pros">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Patient Benefits
+                        </div>
+                        <ul>
+                            <li>Provides substantial bulk to stop you from accidentally rolling onto the surgical side.</li>
+                            <li>Expertly isolates the arm to prevent any tugging on surgical anchors.</li>
+                            <li>Highly versatile; works well for sitting on the couch or moving around the house.</li>
+                        </ul>
+                    </div>
+                    <div class="review-section cons">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            The Reality
+                        </div>
+                        <ul>
+                            <li>Only solves half the equation: John, you will still need a recliner or bed wedge for torso elevation.</li>
+                            <li>The prescribed angle caused some users' hands to fall asleep overnight.</li>
+                            <li>Relatively high price point for a targeted, single-limb brace.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+
+            <!-- System 4 -->
+            <article class="card">
+                <div class="card-header-flex">
+                    <div class="card-header">
+                        <span class="card-number">Option 04</span>
+                        <h2>Restore You Therapeutic Support</h2>
+                        <p class="overview">An FDA-registered Class I medical device engineered to hold the shoulder joint at a precise 45-degree "loose packed" angle.</p>
+                    </div>
+                    <div class="btn-container">
+                        <a href="https://surgicalrecoverysystems.com/best-wedge-pillow-for-shoulder-surgery-recovery/" target="_blank" class="btn">View Product</a>
+                    </div>
+                </div>
+
+                <div class="review-grid">
+                    <div class="review-section pros">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                            Patient Benefits
+                        </div>
+                        <ul>
+                            <li>Enforces the exact 45-degree incline mandated by most orthopedic surgeons.</li>
+                            <li>Allows you to sleep in a real bed rather than being banished to the living room recliner.</li>
+                            <li>Wraparound design firmly stops you from rolling over.</li>
+                        </ul>
+                    </div>
+                    <div class="review-section cons">
+                        <div class="review-title">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="15" y1="9" x2="9" y2="15"></line><line x1="9" y1="9" x2="15" y2="15"></line></svg>
+                            The Reality
+                        </div>
+                        <ul>
+                            <li>Feels exactly like medical equipment: extremely firm, rigid, and uncompromising.</li>
+                            <li>Can induce claustrophobia or frustration for naturally restless sleepers.</li>
+                            <li>Lacks the volume of independent community reviews found with competitors.</li>
+                        </ul>
+                    </div>
+                </div>
+            </article>
+        </main>
+
+        <footer class="footer">
+            <p><strong>A Note for John:</strong> If you prefer not to invest in a premium bedding system, a high percentage of patients report excellent success renting or buying a standard power recliner for the first 4-6 weeks of recovery.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
